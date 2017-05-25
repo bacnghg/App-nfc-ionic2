@@ -10,22 +10,42 @@ Check this page with useful information about [parsing NDEF](http://nfcpy.readth
 
 # Deployment instructions in a fresh environment #
 ```
-npm install -g ionic
-npm install -g cordova
+npm install -g ionic cordova
 ```
 
-Install platforms and plugins as configured in `package.json`:
+# Run in browser
 ```
-$ ionic state restore
+ionic serve
 ```
 
-Another npm install should be necessary...
+## Add plugin
 ```
-$ npm install
+ionic cordova plugin add phonegap-nfc
+ionic cordova plugin add @ionic/app-scripts
+```
+
+## Fix Metadata
+```
+npm i -g reflect-metadata
+npm uninstall -g angular-cli
+npm cache clean 
+npm install -g angular-cli
+```
+
+## Fix 
+```
+npm uninstall -g angular-cli
+npm cache clean
+npm install -g angular-cli@latest
 ```
 
 # Run in device
 Since you are using NFC native reader you must run directly in a device. If you run in the browser, a warning message should be shown in the console.
+
+## Add platform android:
+```
+ionic cordova platform add android
+```
 
 ## Check connected devices
 ```
